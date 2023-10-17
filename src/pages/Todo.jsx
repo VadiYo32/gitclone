@@ -1,6 +1,9 @@
 import { useRef, useState } from "react";
 import ListItem from "../components/listitem";
 
+
+
+
 function Todo()
 {
     
@@ -12,6 +15,13 @@ function Todo()
         console.log(todovalue); 
         setTodo([...todos,todovalue])
     };
+
+   
+
+    const delettodo = (id)=>
+    {
+        setTodo(todos.filter((item) => item.id !== id ))
+    }
     
 
     return <div className="flex flex-col gap-2">
@@ -23,7 +33,7 @@ function Todo()
                     {
                         todos.map((value,index) => 
                         { 
-                            return <ListItem key={index} text={value} />
+                            return <ListItem key={index} text={value}/>
                         })
                     }
                 </ul>
